@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-neon-pink: #FF00FF;
+  --color-neon-cyan: #00FFFF;
+  --color-neon-green: #39FF14;
+  --color-glass-bg: rgba(20, 20, 25, 0.8);
+}
+
+@layer utilities {
+  .neon-green {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 5px var(--color-neon-green);
+  }
+  .neon-pink {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 5px var(--color-neon-pink);
+  }
+  .neon-cyan {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 5px var(--color-neon-cyan);
+  }
+  
+  .glass-panel {
+    background: var(--color-glass-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .shadow-neon-green {
+    box-shadow: 0 0 10px var(--color-neon-green);
+  }
+  .shadow-neon-pink {
+    box-shadow: 0 0 10px var(--color-neon-pink);
+  }
+}
+
+body {
+  @apply bg-[#050505] text-[#e0e0e0] font-mono antialiased selection:bg-neon-cyan/30;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-neon-cyan/50 transition-colors;
+}
